@@ -6,13 +6,15 @@
 </head>
 
 <body>
+    <input type = "text" id = "name"></input>
     <button onclick="showName()">Click to show name</button>
-    <p id="name"></p>
+    <p id="Name"></p>
     <script>
         function showName() {
-            alert('Saurabh Shahane');
-            document.getElementById('name').innerHTML = 'Saurabh Shahane';
-            console.log('Saurabh shahane');
+            var uname = document.getElementById("name").value;
+            alert(uname);
+            document.getElementById('Name').innerHTML = uname;
+            console.log(uname);
         }
     </script>
 </body>
