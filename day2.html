@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day2 - Assignments</title>
+</head>
+
+<body>
+    <label for="name">Name: </label><br>
+    <input type="text" id="nameInput">
+    <button id="button1">Click to show name</button>
+    <p id="nameOutput"></p>
+    <button id="button2">Click to unhide name</button>
+    <p id="unhideName" style="display:none">Saurabh Shahane</p>
+    <h4>Changing font on click</h4>
+    <button id="button3">Click to change font</button><br>
+    <p id="changeFont" style="font-size: 4px">Saurabh Shahane</p>
+    <div>Show current date</div>
+    <button id="button4">Click to view current date</button>
+    <p id="curDate"></p>
+    <button id="button5">See array in ascending order</button>
+    <p id="arraySort"></p>
+    <button id="button6">Click to get name array sorted</button>
+    <p id="nameArray"></p>
+    <button id="button7">check if @ present ina an email</button>
+    <p id="checkMail"></p>
+    <br>
+    <input type="text" id="num">
+    <button id="button8">Click to check if number</button>
+    <p id="numCheckResult"></p>
+    <button id="button9">Click to get a random number</button>
+    <p id="random"></p>
+
+
+
+
+    <script>
+        const arr = [1, 12, 13, 5, 9, 8, 65, 25, 29, 30, 54];
+
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        console.log(getMaxOfArray(arr));
+
+        document.getElementById('button1').addEventListener('click',
+            nameOutput = function() {
+                var x = document.getElementById('nameInput').value;
+                console.log(x);
+                document.getElementById('nameOutput').innerHTML = x;
+            });
+        document.getElementById('button2').addEventListener('click',
+            showName = function() {
+                document.getElementById('unhideName').style.display = 'block';
+            });
+        document.getElementById('button3').addEventListener('click',
+            changeFont = function() {
+                var y = document.getElementById('changeFont').innerHTML.fontsize(7);
+                document.getElementById('changeFont').innerHTML = y;
+            });
+        document.getElementById('button4').addEventListener('click',
+            shoeDate = function() {
+                document.getElementById('curDate').innerHTML = new Date();
+            });
+
+
+        document.getElementById('button5').addEventListener('click',
+            showArraysort = function() {
+                var newArray = arr.sort(function(a, b) {
+                    return a - b;
+                });
+                document.getElementById('arraySort').innerHTML = newArray;
+            });
+        document.getElementById('button6').addEventListener('click',
+            nameSort = function() {
+                var arr2 = ['saurabh', 'vaibhav', 'akash', 'aditya', 'ajinkya'];
+                arr2.sort();
+                arr2.reverse();
+                document.getElementById('nameArray').innerHTML = arr2;
+            });
+        document.getElementById('button7').addEventListener('click',
+            checkMail = function() {
+                const email = 'saurabhshahane77@gmail.com';
+                document.getElementById('checkMail').innerHTML = email.includes('@');
+            });
+        document.getElementById('button8').addEventListener('click',
+            checkNum = function() {
+                var str = document.getElementById('num').value;
+                var msg;
+                var nums = /^\d{10}$/;
+                if (nums.test(str)) {
+                    msg = 'all are numbers';
+                } else {
+                    msg = 'not all are numbers';
+                }
+                document.getElementById('numCheckResult').innerHTML = msg;
+            });
+        document.querySelector('#button9').addEventListener('click',
+            getRandomNum = function() {
+                var randam = Math.random();
+                document.querySelector('#random').innerHTML = randam;
+            });
+    </script>
+</body>
+
+</html>
