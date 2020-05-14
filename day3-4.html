@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3/4 Assignments</title>
+</head>
+
+<body>
+    <h4>Get factorial of number</h4><br>
+    <input type="text" pattern="[0-9]" id="input1" placeholder="Enter a number">
+    <button id="btn1">Click to get factorial of number</button>
+    <p id="output1"></p>
+    <button id="btn2">Click to display name and balance</button>
+    <div id="output2"></div>
+    <button id="btn3">Click to get square of a number</button>
+    <div id="output3"></div>
+    <button id="btn4">Click to get cube of a number</button>
+    <div id="output4"></div>
+    <button id="btn5">Click to get currentAccount details</button>
+    <div id="output5"></div>
+
+
+
+
+
+
+
+
+    <script>
+        document.querySelector('#btn1').addEventListener('click', getFactorial = () => {
+            var num = document.getElementById('input1').value;
+            var fact = 1;
+            for (let i = 1; i <= num; i++) {
+                fact *= i;
+            }
+            document.getElementById('output1').innerHTML = fact;
+        });
+
+
+        document.getElementById('btn2').addEventListener('click', myFunc1);
+        class Account {
+            constructor(name, balance) {
+                this.name = name;
+                this.balance = balance;
+            }
+            deposit(balance) {
+                return this.balance += balance;
+            }
+            display() {
+                return `${this.name}<br>${this.balance}`;
+            }
+        }
+
+
+        /*Account.prototype.deposit = function(balance) {
+            return this.balance += balance;
+        }
+        Account.prototype.display = function() {
+            return `${this.name}<br>${this.balance}`;
+        }*/
+
+
+        var person1 = new Account('John', 10000);
+        var person2 = new Account('Ben', 25000);
+
+        //console.log(person1);
+
+        person1.deposit(780); //deposit method on Account object
+
+        //console.log(person1);
+
+        //console.log(person2);
+
+        person2.deposit(555); //deposit method on Account object
+
+        //console.log(person2);
+
+        console.log(Account);
+
+        function myFunc1() {
+            document.getElementById('output2').innerHTML = person1.display() + '<br>' + person2.display();
+        }
+
+
+
+        class math {
+            constructor(num) {
+                this.num = num;
+            }
+            static square(x) {
+                return x * x;
+            }
+            static cube(x) {
+                return x * x * x;
+            }
+        }
+
+
+        /*console.log(math);
+        console.log(math.square(9));
+        console.log(math.cube(12));*/
+
+
+        document.getElementById('btn3').addEventListener('click', myFunc2);
+
+        document.getElementById('btn4').addEventListener('click', myFunc3);
+
+        function myFunc2() {
+            const sqr = document.getElementById('input1').value;
+            document.getElementById('output3').innerHTML = math.square(sqr);
+        }
+
+
+        function myFunc3() {
+            const cub = document.getElementById('input1').value;
+            document.getElementById('output4').innerHTML = math.cube(cub);
+        }
+
+
+
+        class currentAccount extends Account {
+            constructor(name, balance) {
+                super(name, balance);
+            }
+            show() {
+                return `${this.name}<br>${this.balance}`;
+            }
+            withdraw(x) {
+                this.balance -= x;
+            }
+        }
+
+        console.log(currentAccount);
+
+        person3 = new currentAccount('Gwen', 145000);
+
+        //console.log(person3);
+
+        person3.deposit(145); //deposit method on currentAccount object
+
+        //console.log(person3);
+
+        person3.withdraw(1000); //withdraw method on currentAccount object
+
+        //console.log(person3);
+
+        person4 = new currentAccount('Max', 77500);
+
+        //console.log(person4);
+
+        person4.deposit(875); //deposit method on currentAccount object
+
+        //console.log(person4);
+
+        person4.withdraw(1000); //withdraw method on currentAccount object
+
+        //console.log(person4);
+
+        document.getElementById('btn5').addEventListener('click', myFunc4);
+
+        function myFunc4() {
+            document.getElementById('output5').innerHTML = person3.show() + '<br>' + person4.show();
+        }
+    </script>
+</body>
+
+</html>
