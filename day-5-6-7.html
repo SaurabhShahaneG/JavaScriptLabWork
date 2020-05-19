@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-5-6-7-Assignment</title>
+</head>
+
+<body>
+    <form action="" id="myForm" onsubmit="return validateForm()" method="">
+        <label for="userId">userId: </label>
+
+        <input type="text" id="userId" onchange="checkUserId()" required><br>
+
+        <p id="txt1" style="color:red; display:none">User id must mininum 3 character and maxinum 15 character</p><br>
+
+        <label for="password">Password: </label>
+
+        <input type="password" id="password" onchange="checkPassword()" required><br>
+
+        <p id="txt2" style="color: red;display: none">Password must be mininum 8 character</p><br>
+
+        <label for="mobile">Mobile: </label>
+
+        <input type="number" id="mobile" onchange="checkMobile()" required><br>
+
+        <p id="txt3" style="color:red;display: none">Mobile must be 10 digits number</p><br>
+
+        <label for="address">Address: </label>
+
+        <textarea id="add" cols="30" rows="10" required></textarea><br>
+
+        <p id="txt4" style="color:red;display: none">Fill the address details</p><br>
+
+        <label for="age">Age: </label>
+
+        <input type="number" id="age" onchange="checkAge()" required><br>
+
+        <p id="txt5" style="color:red;display: none">Age must be greater than 18 and less than 100</p><br>
+
+        <input type="submit" value="submit">
+    </form>
+
+    <script>
+        var isUserIdValid = false;
+        var isPasswordValid = false;
+        var isMobileValid = false;
+        var isAddressValid = false;
+        var isAgeValid = false;
+
+        function checkUserId() {
+            let uid = document.getElementById('userId').value;
+            if (uid.length >= 3 && uid.length <= 15) {
+                document.getElementById('txt1').style.display = 'none';
+                isUserIdValid = true;
+            } else {
+                document.getElementById('txt1').style.display = 'block';
+                isUserIdValid = false;
+            }
+        }
+
+        function checkPassword() {
+            let pass = document.getElementById('password').value;
+            if (pass.length >= 8) {
+                document.getElementById('txt2').style.display = 'none';
+                isPasswordValid = true;
+            } else {
+                document.getElementById('txt2').style.display = 'block';
+                isPasswordValid = false;
+            }
+        }
+
+        function checkMobile() {
+            let mob = document.getElementById('mobile').value;
+            if (mob.length == 10) {
+                document.getElementById('txt3').style.display = 'none';
+                isMobileValid = true;
+            } else {
+                document.getElementById('txt3').style.display = 'block';
+                isMobileValid = false;
+            }
+        }
+
+        function checkAge() {
+            let age = document.getElementById('age').value;
+            if (age >= 18 && age <= 100) {
+                document.getElementById('txt5').style.display = 'none';
+                isAgeValid = true;
+            } else {
+                document.getElementById('txt5').style.display = 'block';
+                isAgeValid = false;
+            }
+        }
+
+        function validateForm() {
+            let add = document.getElementById('add').value;
+            if (add == '' || add == null) {
+                document.getElementById('txt4').style.display = 'block';
+                isAddressValid = false;
+            } else {
+                document.getElementById('txt4').style.display = 'none';
+                isAddressValid = true;
+            }
+            console.log(isUserIdValid, isPasswordValid, isMobileValid, isAddressValid, isAgeValid);
+            if (isUserIdValid && isPasswordValid && isMobileValid && isAddressValid && isAgeValid) {
+                alert('Form submitted successfully');
+                return true;
+            } else {
+                alert('Please enter required fields');
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
