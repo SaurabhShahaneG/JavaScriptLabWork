@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day8</title>
+</head>
+
+<body>
+
+
+    <script>
+        class Employee {
+            constructor(id, name, salary, netSalary) {
+                this._id = id;
+                this._name = name;
+                this._salary = salary;
+                this._netSalary = 0;
+            }
+            netSalaryFun() {
+                this._netSalary = this._salary * 0.90;
+            }
+            set name(name) {
+                this._name = name;
+            }
+
+            set id(id) {
+                this._id = id;
+            }
+
+            set salary(sal) {
+                this._salary = sal;
+            }
+        };
+        emp1 = new Employee(1, "Saurabh", 100000);
+        emp1.netSalaryFun();
+        console.log(emp1);
+        emp1.id = 10;
+        emp1.name = "John";
+        emp1.salary = 200000;
+        emp1.netSalaryFun();
+        console.log(emp1);
+
+
+        emp2 = new Employee(2, "Shubham", 300000);
+        emp2.netSalaryFun();
+        console.log(emp2);
+        emp2.id = 20;
+        emp2.name = "Smith";
+        emp2.salary = 400000;
+        emp2.netSalaryFun();
+        console.log(emp2);
+
+        class student {
+            constructor(rollNo, name, marks1, marks2, marks3, total, percentage) {
+                this._rollNo = rollNo;
+                this._name = name;
+                this._marks1 = marks1;
+                this._marks2 = marks2;
+                this._marks3 = marks3;
+                this._total = total;
+                this._percentage = percentage;
+            }
+            get rollNo() {
+                return this._rollNo;
+            }
+            set rollNo(x) {
+                this._rollNo = x;
+            }
+            get marks1() {
+                return this._marks1;
+            }
+            set marks1(x) {
+                this._marks1 = x;
+            }
+            get marks2() {
+                return this._marks2;
+            }
+            set marks2(x) {
+                this._marks2 = x;
+            }
+            get marks3() {
+                return this._marks3;
+            }
+            set marks3(x) {
+                this._marks3 = x;
+            }
+            totalFun() {
+                this._total = this._marks1 + this._marks2 + this._marks3;
+            }
+            percentageFun() {
+                this._percentage = this._total / 3;
+            }
+        };
+        stud1 = new student(1, "John", 60, 70, 80);
+        console.log(stud1);
+        stud1.totalFun();
+        stud1.percentageFun();
+        console.log(stud1);
+    </script>
+</body>
+
+</html>
