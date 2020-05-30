@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .valid {
+            color: green;
+        }
+        
+        .valid:before {
+            position: relative;
+            left: -35px;
+            content: "✔";
+        }
+        
+        .invalid {
+            color: red;
+        }
+        
+        .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "✖";
+        }
+    </style>
+    <title>Day10-11-12</title>
+</head>
+
+<body>
+    <button id="btn" style="color: red;">I'm red now click me</button>
+    <h1 id="alignName" style="text-align: left;">Saurabh Shahane</h1>
+    <button id="btn1">Click to change alignment</button>
+    <p id="bgColor" style="background-color: blue; color: white;">Saurabh Shahane</p>
+    <button id="btn2">Click to reverse colors</button><br>
+    <input type="text" id="txt"><br> Red:
+    <input type="radio" name="color" value="red"><br> Green:
+    <input type="radio" name="color" value="green"><br>Yellow:
+    <input type="radio" name="color" value="yellow"><br> font size:
+    <select name="font" id="fnsize">
+        <option value="1px">1</option>
+        <option value="2px">2</option>
+        <option value="3px">3</option>
+        <option value="4px">4</option>
+        <option value="5px">5</option>
+        <option value="6px">6</option>
+        <option value="7px">7</option>
+        <option value="8px">8</option>
+        <option value="9px">9</option>
+        <option value="10px">10</option>
+    </select><br>
+    <input type="number" id="val1">
+    <input type="number" id="val2">
+    <input type="text" id="output"><br> Add: <input type="radio" name="addOrSub" onclick="myFunction5add()"><br> Substract: <input type="radio" name="addOrSub" value="-" onclick="myFunction5sub()">
+    <div>
+        <p class="myself">My name is saurabh shahane.</p>
+        <p class="myself">I have recently graduated with bacholor's degree in mechanical engineering from VPKBIET, Baramati.</p>
+        <p class="myself">I am now doing post graduate diploma in advance computing at VITA, Mumbai.</p>
+        <p id="paraNos" style="display: none;"></p>
+        <button id="btn3">Click to know para nos</button>
+    </div>
+    <div>
+        <ol id="fdList">
+            <li>Aditya Gawade</li>
+            <li>Ajinkya Malvadkar</li>
+            <li>Sangram Sangale</li>
+            <li>Saurabh Kumbhar</li>
+            <li>Onkar Vyavhare</li>
+            <li>Digvijay Nehul</li>
+            <li>Ashwin Avhad</li>
+        </ol>
+        <button id="btn4">Click to delete 1st name</button>
+    </div>
+    <div>
+        <input type="text" id="txt1">
+        <span id="optxt1"></span>
+    </div>
+    <h1>Password:</h1>
+    <div id="pass">
+        <input type="text" id="password">
+        <div id="message">
+            <p id="letter" class="invalid">A lowercase letter</p>
+            <p id="capital" class="invalid">A capital uppercase letter</p>
+            <p id="number" class="invalid">A number</p>
+            <p id="specialChar" class="invalid">A special charachter</p>
+        </div>
+    </div>
+    <div>
+        Let'us C:<input type="checkbox" name="book" id="bk1" value="500" onclick="totalIt()">500 <br> Java: <input type="checkbox" name="book" id="bk2" value="1000" onclick="totalIt()">1000 <br> JavaScript: <input type="checkbox" name="book" id="bk3"
+            value="750" onclick="totalIt()">750 <br> Total Price:
+        <input type="text" id="bookPrice">
+    </div>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', myFunction);
+
+        function myFunction() {
+            btn.innerHTML = "I'm blue now after click";
+            btn.style.color = 'blue';
+        }
+        var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', myFunction1);
+
+        function myFunction1() {
+            document.getElementById('alignName').style.textAlign = 'right';
+        }
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', myFunction2);
+
+        function myFunction2() {
+            document.getElementById('bgColor').style.backgroundColor = 'white';
+            document.getElementById('bgColor').style.color = 'blue';
+        }
+        var txt = document.getElementById('txt');
+        txt.addEventListener('click', myFunction3);
+        var radios = document.querySelectorAll('input[name="color"]');
+
+        function myFunction3() {
+            for (const rd of radios) {
+                if (rd.checked) {
+                    txt.style.color = rd.value;
+                }
+            }
+
+        }
+        var selectFont = document.getElementById('fnsize');
+        selectFont.addEventListener('change', myFunction4);
+
+        function myFunction4() {
+            document.getElementById('bgColor').style.fontSize = selectFont.value;
+        }
+        var val1 = document.getElementById('val1');
+        var val2 = document.getElementById('val2');
+        var output = document.getElementById('output');
+
+        function myFunction5add() {
+            output.value = Number.parseInt(val1.value) + Number.parseInt(val2.value);
+        }
+
+        function myFunction5sub() {
+            output.value = Number.parseInt(val1.value) - Number.parseInt(val2.value);
+        }
+        var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', myFunction6);
+
+        function myFunction6() {
+            let paras = document.querySelectorAll('p.myself');
+            document.getElementById('paraNos').style.display = 'block';
+            document.getElementById('paraNos').innerHTML = paras.length;
+        }
+        var fdList = document.getElementById('fdList');
+        var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', myFunction7);
+
+        function myFunction7() {
+            fdList.firstElementChild.remove();
+        }
+        var txt1 = document.getElementById('txt1');
+        txt1.addEventListener('change', myFunction8);
+
+        function myFunction8() {
+            document.getElementById('optxt1').innerHTML = txt1.value;
+            if (txt1.value == "" || txt1.value == null) {
+                document.getElementById('optxt1').style.color = 'red';
+                document.getElementById('optxt1').innerHTML = 'Text box is empty'
+            }
+        }
+        var myInput = document.getElementById("password");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var specialchar = document.getElementById("specialChar");
+        myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+        }
+        myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+        }
+        myInput.addEventListener('input', myFunction9);
+
+        function myFunction9() {
+            //for lower case character matching
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+            //for capital character matching
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+            //for number matching
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+            var splchar = /[\W]/g;
+            if (myInput.value.match(splchar)) {
+                specialchar.classList.remove("invalid");
+                specialchar.classList.add("valid");
+            } else {
+                specialchar.classList.remove("valid");
+                specialchar.classList.add("invalid");
+            }
+        }
+
+        function totalIt() {
+            var input = document.getElementsByName("book");
+            var total = 0;
+            for (var i = 0; i < input.length; i++) {
+                if (input[i].checked) {
+                    total += parseFloat(input[i].value);
+                }
+            }
+            document.getElementById('bookPrice').value = total;
+        }
+    </script>
+</body>
+
+</html>
