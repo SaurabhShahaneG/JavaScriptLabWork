@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day15-16</title>
+</head>
+
+<body>
+    <div>
+        <img src="img/InstagramCapture_6b9e5f7d-bd4c-484b-8f2f-f724a03f7437.jpg" alt="img" width="100px" height="100px"><br>
+        <button id="btn">Close image</button>
+    </div>
+    <div>
+        <p id="txt">My name is saurabh shahane. <br>I have recently graduated with bacholor's degree in mechanical engineering from VPKBIET, Baramati. <br> I am now doing post graduate diploma in advance computing at VITA, Mumbai.
+            <br>I have many friends and those are special and very kind also.
+        </p>
+    </div>
+    <div>
+        <h1 id="heading" style="color: blue;">Saurabh Shahane</h1>
+    </div>
+    <div>
+        <input type="text" id="txtbox">
+    </div>
+
+
+
+
+
+
+    <script>
+        document.getElementById('btn').addEventListener('click', myFunction);
+
+        function myFunction() {
+            document.querySelector('img').style.display = 'none';
+        }
+        document.getElementById('txt').addEventListener('mouseover', myFunction2);
+        document.getElementById('txt').addEventListener('mouseout', myFunction3);
+
+        function myFunction2() {
+            document.querySelector('#txt').style.display = 'none';
+        }
+
+        function myFunction3() {
+            document.querySelector('#txt').style.display = 'block';
+        }
+        document.getElementById('heading').addEventListener('mouseenter', myFunction4);
+
+        function myFunction4() {
+            document.querySelector('#heading').style.border = 'thin solid red';
+        }
+        document.getElementById('txtbox').addEventListener('blur', myFunction5);
+
+        function myFunction5() {
+            document.getElementById('txtbox').style.backgroundColor = 'grey';
+        }
+        document.getElementById('txtbox').addEventListener('focus', myFunction6);
+
+        function myFunction6() {
+            document.getElementById('txtbox').style.backgroundColor = 'white';
+        }
+        document.getElementById('txtbox').addEventListener('input', myFunction7);
+
+        function myFunction5() {
+            document.getElementById('txtbox').style.color = 'green';
+        }
+    </script>
+</body>
+
+</html>
