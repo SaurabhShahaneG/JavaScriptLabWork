@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day13-14</title>
+</head>
+
+<body onload="startTime()">
+    <div>
+        <p id="clock"></p>
+    </div>
+    <div>
+        <h2 id="txt"></h2>
+    </div>
+    <div>
+        <button id="btn">Show image</button>
+    </div><br>
+    <div id="cookie">
+        <input type="text" id="cookieInput" placeholder="enter a name"><br>
+        <button id="btn2">Create cookie</button>
+        <button id="btn3">Read cookie</button>
+        <p id="cookieTxt"></p>
+    </div>
+
+
+
+
+
+
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
+            setInterval(startTime, 1000);
+            //setTimeout(startTime, 500);
+        }
+
+        function checkTime(t) {
+            if (t < 10) {
+                t = "0" + t;
+            }
+            return t;
+        }
+        window.addEventListener('load', myfunction);
+
+        function myfunction() {
+            document.getElementById('txt').innerHTML = "Screen height is: " + screen.height + "<br>Screen width is: " + screen.width;
+        }
+        document.getElementById('btn').addEventListener('click', myfunction2);
+
+        function myfunction2() {
+            window.open('img/InstagramCapture_6b9e5f7d-bd4c-484b-8f2f-f724a03f7437.jpg');
+        }
+        document.getElementById('btn2').addEventListener('click', myfunction3);
+
+        function myfunction3() {
+            document.cookie = "name=" + document.getElementById('cookieInput').value;
+        }
+        document.getElementById('btn3').addEventListener('click', myfunction4);
+
+        function myfunction4() {
+            document.getElementById('cookieTxt').innerHTML = document.cookie;
+        }
+    </script>
+</body>
+
+</html>
