@@ -2,3 +2,17 @@ hii this is just example for testing
 this is the line i added from my local pc
 
 Now is the 3rd line i made a "testing-branch" branch from command line and making 2nd time changes to the "test.text" file
+i have successfully done branching testing and now doing fast practice of it
+1st command: "git branch testbranchfast" //this creates the branch
+2nd command: "git checkout testbranchfast" //this uses the branch we want to use
+3rd coomand: "git add -A" //add all the files
+4th command: "git commit -m "this the message"" //this is to commit the changes
+5th coomand: "git push -u origin master" //in this we push locally the changes and ready to merge with master
+6th command: "git checkout master" //uses master branch and now we want to merge the testbranchfast
+7th command: "git pull origin master" //pull the all files first
+8th command: "git merge testbranchfast" //this will merge the testbranchfast with master origin
+9th command: "git push origin master" //pushing all the changes to remote repo and now we can delete branch locally and remotely
+10th command: "git branch --merged" //to check all the branches merged all the changes within that branch with master successfullly
+11th coomand: "git branch -d testbranchfast" //delete the testbranchfast branch locally
+12the command: "git branch -a" //shows all the branches
+13the command: "git pudh origin --delete testbranchfast" //delete the branch remotely 
