@@ -15,4 +15,4 @@ i have successfully done branching testing and now doing fast practice of it
 10th command: "git branch --merged" //to check all the branches merged all the changes within that branch with master successfullly
 11th coomand: "git branch -d testbranchfast" //delete the testbranchfast branch locally
 12the command: "git branch -a" //shows all the branches
-13the command: "git pudh origin --delete testbranchfast" //delete the branch remotely 
+13the command: "git push origin --delete testbranchfast" //delete the branch remotely 
